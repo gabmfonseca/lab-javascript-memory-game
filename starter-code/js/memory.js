@@ -6,7 +6,20 @@ class MemoryGame {
     this.pairsGuessed = 0;
   }
 
-  shuffleCards() {}
+  shuffleCards() {
+    let shuffle = cards => {
+      let a = cards.length;
+      while (a !== 0) {
+        let b = Math.floor(Math.random() * a);
+        a--;
+        let c = cards[a];
+        cards[a] = cards[b];
+        cards[b] = c;
+      }
+      return cards;
+    };
+    shuffle(this.cards);
+  }
 
   checkIfPair(card1, card2) {
     this.pairsClicked += 1;
